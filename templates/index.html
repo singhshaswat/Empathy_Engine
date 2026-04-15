@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathy Engine</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Empathy Engine</h1>
+      <p>Paste any text, detect its emotion, and generate speech that sounds more human by changing rate, volume, and voice tone.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <form method="post">
+          <textarea name="text" placeholder="Type something here...">{{ text }}</textarea>
+          <button type="submit">Generate Speech</button>
+        </form>
+        {% if audio_url %}
+          <audio controls autoplay>
+            <source src="{{ audio_url }}" type="audio/wav">
+          </audio>
+        {% endif %}
+        {% if error %}
+          <div class="error">{{ error }}</div>
+        {% endif %}
+      </div>
+
+      <div class="card">
+        <div class="pill"><span class="label">Emotion</span><span class="value">{{ emotion or '—' }}</span></div>
+        <div class="pill"><span class="label">Intensity</span><span class="value">{{ intensity_display or '—' }}</span></div>
+        <div class="pill"><span class="label">Rate</span><span class="value">{{ rate or '—' }}</span></div>
+        <div class="pill"><span class="label">Volume</span><span class="value">{{ volume or '—' }}</span></div>
+        <div class="pill"><span class="label">Style</span><span class="value">{{ label or '—' }}</span></div>
+        <p class="small">Mapping logic:
+          happy → faster + louder,
+          frustrated → slower + slightly softer,
+          neutral → steady,
+          surprised → fast and bright.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Built with Flask, VADER/TextBlob-style sentiment logic, and pyttsx3.
+    </div>
+  </div>
+</body>
+</html>
