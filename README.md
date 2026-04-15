@@ -1,38 +1,96 @@
-# 🎭 Empathy Engine – Emotion-Aware Text-to-Speech
+# 🎭 Emppathy Engine – Emotion-Aware Text-to-Speech
 
-**Give your AI a human voice.**  
-The Empathy Engine dynamically adjusts speech rate, volume, and vocal tone based on the emotional content of input text. It detects sentiment (happy, frustrated, surprised, neutral) and modulates TTS parameters to produce more natural, expressive speech.
-
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+Give your app a **human-like voice**.  
+Empathy Engine analyzes input text and generates speech by adjusting **emotion, rate, and volume**.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- **Sentiment Analysis**: Uses VADER (Valence Aware Dictionary and sEntiment Reasoner) to classify text into `happy`, `frustrated`, `surprised`, or `neutral`.
-- **Intensity Scaling**: Exclamation marks and question marks amplify the intensity, making modulation more pronounced.
-- **Voice Modulation**:
-  - **Rate** (words per minute) – faster for excited/surprised, slower for frustrated.
-  - **Volume** – louder for happy/surprised, softer for frustrated.
-  - **Voice Index** – switches between available system voices to add tonal variety.
-- **Web Interface**: Simple, responsive UI for instant testing.
-- **Automatic Cleanup**: Keeps only the 10 most recent audio files to manage disk space.
-- **Offline TTS**: Uses `pyttsx3` – no API keys required.
+- 🧠 Emotion Detection (happy, frustrated, neutral, surprised)
+- 🔊 Dynamic voice modulation (rate + volume)
+- 🌐 Flask-based web interface
+- 🎧 Offline Text-to-Speech using pyttsx3
+- 🧹 Auto cleanup of old audio files
 
 ---
 
-## 📋 Prerequisites
+## 📂 Project Structure
+```bash
+Empathy_Engine/
+│
+├── app.py
+├── engine.py
+├── outputs/
+├── templates/
+│ └── index.html
+├── static/
+│ └── style.css
+```
+---
 
-- Python 3.8 or higher
-- pip (Python package installer)
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/singhshaswat/Empathy_Engine.git
+cd Empathy_Engine
+pip install flask pyttsx3 vaderSentiment
+```
+---
+
+## ▶️ Run the App
+
+```bash
+python app.py
+```
+## Then open:
+http://127.0.0.1:5000
 
 ---
 
-## 🚀 Installation & Setup
+## 🧠 How It Works
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/singhshaswat/empathy-engine.git
-   cd empathy-engine
+User enters text in UI
+Emotion is detected using sentiment analysis
+A voice profile is built (rate, volume, tone)
+Speech is generated using pyttsx3
+Audio is played in browser
+
+---
+
+## 🎯 Emotion Mapping
+| Emotion    | Behavior         |
+| ---------- | ---------------- |
+| Happy      | Faster + louder  |
+| Frustrated | Slower + softer  |
+| Neutral    | Balanced         |
+| Surprised  | Fast + energetic |
+
+---
+
+## 🛠 Tech Stack
+Python
+Flask
+pyttsx3
+VADER Sentiment Analysis
+HTML + CSS
+
+---
+
+## ⚠️ Notes
+Works offline (no API needed)
+Voice depends on system voices
+Make sure pyttsx3 is installed correctly
+
+---
+
+## 💡 Future Improvements
+ElevenLabs / API-based voices
+Voice selection dropdown
+Deployment (Render / AWS)
+
+---
+
+## 👨‍💻 Author
+Shaswat Singh
+CSE @ IIIT Nagpur
