@@ -1,4 +1,4 @@
-# 🎭 Emppathy Engine – Emotion-Aware Text-to-Speech
+# 🎭 Empathy Engine – Emotion-Aware Text-to-Speech
 
 Give your app a **human-like voice**.  
 Empathy Engine analyzes input text and generates speech by adjusting **emotion, rate, and volume**.
