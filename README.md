@@ -18,7 +18,7 @@ Empathy Engine analyzes input text and generates speech by adjusting **emotion, 
 ## 📂 Project Structure
 ```bash
 Empathy_Engine/
-│
+├── .gitignore
 ├── app.py
 ├── engine.py
 ├── outputs/
